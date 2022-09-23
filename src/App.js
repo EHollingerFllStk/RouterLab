@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Stocks from './pages/Stocks';
+import About from './pages/About';
+import Home from './pages/Home';
+import StockShow from "./pages/StockShow"
+import Nav from "./components/Nav"
+import { withRouter } from 'react-router';
+import { Route, Switch } from "react-router-dom";
+// import { withRouter } from 'react-router'
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Nav/>
+      <Switch>
+        <Route exact path ="/">
+          < Home/>
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        
+      <Route path="/stocks/:symbol"
+          render={(routerProps) => <StockShow {...routerProps} />}
+          />  
+        <Route path="/stocks">
+          < Stocks/> 
+        </Route>
+      </Switch>
     </div>
   );
 }
 
 export default App;
+// export default withRouter(App)
