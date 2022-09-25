@@ -23,9 +23,9 @@ function App(props) {
       <Route path="/stocks/:symbol"
           render={(routerProps) => <StockShow {...routerProps} />}
           />  
-        <Route path="/stocks">
+          <Route path="/stocks">
           < Stocks/> 
-        </Route>
+      </Route>
       </Switch>
     </div>
   );

@@ -17,7 +17,7 @@ return (
       const { name, symbol, lastPrice, change } = stock;
 
       return (
-        <Link key={index} to={`/stocks/${symbol}`}>
+        <Link key={index} to={`lastPrice/${symbol}`}>
           <h2>{name}</h2>
         </Link>
       );
