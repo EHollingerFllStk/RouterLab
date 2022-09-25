@@ -1,20 +1,28 @@
 import React from "react";
-import data from "../components/stock-data"
+import data from "../components/stock-data";
 
 const StockShow = (props) => {
-console.log(data)
+  console.log(data)
 const symbol = props.match.params.symbol
-console.log(props)
-const [stock, setStock] = React.useState();
 
+  let thisStock 
+
+    data.map((d)=> {
+      if (d.symbol === symbol) {
+        thisStock = d;
+        //setStock(thisStock)
+      }
+    })
+    
     return (
       <div>
         <h1>
-          {stock.name}
+        {thisStock.name}
         </h1>
-        <h2>{stock.symbol}/{stock.lastPrice}/{stock.change}</h2>
+        <h2>{thisStock.symbol}/{thisStock.lastPrice}/{thisStock.change}</h2>
       </div>
     );
 }
 
 export default StockShow;
+

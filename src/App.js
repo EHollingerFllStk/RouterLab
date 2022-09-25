@@ -6,7 +6,6 @@ import StockShow from "./pages/StockShow"
 import Nav from "./components/Nav"
 import { withRouter } from 'react-router';
 import { Route, Switch } from "react-router-dom";
-// import { withRouter } from 'react-router'
 
 function App(props) {
   return (
@@ -19,8 +18,7 @@ function App(props) {
         <Route path="/about">
           <About />
         </Route>
-        
-      <Route path="/stocks/:symbol"
+        <Route path="/stocks/:symbol"
           render={(routerProps) => <StockShow {...routerProps} />}
           />  
           <Route path="/stocks">
